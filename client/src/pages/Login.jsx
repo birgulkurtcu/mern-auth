@@ -4,17 +4,14 @@ import {useNavigate} from "react-router-dom";
 import {AppContent} from "../context/AppContext.jsx";
 import axios from "axios";
 import {toast} from "react-toastify";
-import {data} from "autoprefixer";
 
 const Login = () => {
     const navigate = useNavigate()
     const {backendUrl, setIsLoggedIn, getUserData} = useContext(AppContent);
-
     const [state, setState] = useState("Sign Up")
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("");
-
     const onSubmitHandler = async (e) => {
         try {
             e.preventDefault();
@@ -39,7 +36,7 @@ const Login = () => {
                 }
             }
         } catch (error) {
-            toast.error(data.message)
+            toast.error(error.message)
         }
     }
     return (
